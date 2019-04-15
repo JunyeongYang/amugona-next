@@ -16,17 +16,14 @@ interface IndexState {
 }
 
 class IndexPage extends React.Component<IndexProps, IndexState> {
-  static async getInitialProps({store}) {
-    console.log('store : ', store.getState().showcaseReducer.message)
+  static async getInitialProps({store, isServer, pathname, query}) {
     return {
-      title: 'NextJS + Typescript + Sass + Redux + I18N + MaterialUI',
-      message: store.getState().showcaseReducer.message
+      title: 'NextJS + Typescript + Sass + Redux + I18N + MaterialUI'
     }
   }
 
   render(): JSX.Element {
     const { title, message, updateMessage } = this.props
-    console.log('updateMessage : ', updateMessage)
     return (
       <div className="root">
         <h1>{title}</h1>
@@ -38,7 +35,7 @@ class IndexPage extends React.Component<IndexProps, IndexState> {
 }
 
 const mapStateToProps = (state) => ({
-  updateMessage: state.message,
+  message: state.showcaseReducer.message,
 })
 
 const mapDispatchToProps = (dispatch) => ({

@@ -28,5 +28,3 @@ export default withRedux(initStore)(class _App extends App<AppProps> {
     );
   }
 })
-
-// export default withRedux(initStore)(_App)

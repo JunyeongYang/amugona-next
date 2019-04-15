@@ -268,6 +268,141 @@ yarn add --dev @types/react-redux @types/next-redux-wrapper
 
 폴더 구조는 본인 스타일로 생성하면 된다. src/redux 도 그냥 내가 생각한거니까 src/store 로 하든 어떻게 하든 그건 니 맴이다
 
+### STATE
+
+```tsx
+export interface IShowcase {
+  message: string
+}
+```
+
+### ACTIONS
+
+```tsx
+export const UPDATE_MESSAGE = 'UPDATE MESSAGE'
+
+export const updateMessage = (message: string) => dispatch => {
+  return dispatch({
+    type: UPDATE_MESSAGE,
+    payload: message
+  })
+}
+```
+
+### REDUCER
+
+```tsx
+import { IShowcase } from './state'
+import * as showcaseActions from './actions'
+
+const initialState: IShowcase = {
+  message: 'Hello Showcase'
+}
+
+export const reducer = (state = initialState, action) => {
+  switch (action.type) {
+    case showcaseActions.UPDATE_MESSAGE:
+      return Object.assign({}, state, { message: action.payload })
+    default: return state
+  }
+}
+```
+
+### APP
+
+react-redux 의 Provider 컴포넌트를 가져와서 store 를 넘겨주면 자식 컴포넌트에서 스테이트를 쓸 수 있다
+
+```tsx
+import React from 'react'
+import App, { Container } from 'next/app'
+import { Provider } from 'react-redux'
+import withRedux from 'next-redux-wrapper'
+import { initStore } from '../src/redux/store'
+
+type AppProps = {
+  store: any
+}
+
+export default withRedux(initStore)(class _App extends App<AppProps> {
+  static async getInitialProps({ Component, ctx }) {
+
+    return {
+      pageProps: Component.getInitialProps ? await Component.getInitialProps(ctx) : {}
+    }
+  }
+
+  render(): JSX.Element {
+    const { Component, pageProps, store } = this.props
+
+    return (
+      <Container>
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
+      </Container>
+    );
+  }
+})
+```
+
+### INDEX
+
+```tsx
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { updateMessage } from '../src/redux/showcase/actions'
+
+import "./index.scss"
+
+interface IndexProps {
+  title: string
+  message: string
+  updateMessage: any
+}
+
+interface IndexState {
+
+}
+
+class IndexPage extends React.Component<IndexProps, IndexState> {
+  static async getInitialProps({store, isServer, pathname, query}) {
+    return {
+      title: 'NextJS + Typescript + Sass + Redux + I18N + MaterialUI'
+    }
+  }
+
+  render(): JSX.Element {
+    const { title, message, updateMessage } = this.props
+    return (
+      <div className="root">
+        <h1>{title}</h1>
+        <p>Message : <span>{message}</span></p>
+        <button onClick={() => updateMessage('update message')}>click</button>
+      </div>
+    )
+  }
+}
+
+const mapStateToProps = (state) => ({
+  message: state.showcaseReducer.message,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  updateMessage: bindActionCreators(updateMessage, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
+```
+
+더럽게 복잡하다
+
+뷰 였으면 엄청 간단하니까 그냥 뷰를 쓰도록 하자
+
+---
+
+## I18N 설치 및 설정
+
 
 
 ---
