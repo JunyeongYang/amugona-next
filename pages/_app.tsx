@@ -3,12 +3,13 @@ import App, { Container } from 'next/app'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import { initStore } from '../src/redux/store'
+import { appWithTranslation } from '../i18n'
 
 type AppProps = {
   store: any
 }
 
-export default withRedux(initStore)(class _App extends App<AppProps> {
+class _App extends App<AppProps> {
   static async getInitialProps({ Component, ctx }) {
 
     return {
@@ -27,4 +28,6 @@ export default withRedux(initStore)(class _App extends App<AppProps> {
       </Container>
     );
   }
-})
+}
+
+export default withRedux(initStore)(appWithTranslation(_App))

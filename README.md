@@ -403,7 +403,114 @@ export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
 
 ## I18N 설치 및 설정
 
+```sh
+yarn add next-i18next
+```
 
+### locale 파일 생성
+
+```js
+// static/locales/en/common.json
+{
+  "title": "NextJS + Typescript + Sass + Redux + I18N + MaterialUI"
+}
+
+// static/locales/ko/common.json
+{
+  "title": "넥스트 + 타입스크립트 + 사스 + 리덕스 + 언어팩 + 머티리얼 디자인"
+}
+```
+
+### 라이브러리 설정
+
+```ts
+import NextI18Next from 'next-i18next'
+
+const NextI18NextInstance = new NextI18Next({
+  defaultLanguage: 'en',
+  otherLanguages: ['ko']
+})
+
+export default NextI18NextInstance
+
+/* Optionally, export class methods as named exports */
+export const {
+  appWithTranslation,
+  withNamespaces,
+} = NextI18NextInstance
+```
+
+### 미들웨어 적용
+
+next-i18next 를 이용해서 언어팩을 적용하려면 서버에 미들웨어를 추가해줘야 하기 때문에 express 를 설치해야한다
+
+```sh
+yarn add express typescript
+yarn add --dev @types/express nodemon ts-node
+```
+
+서버 파일을 ts-node 로 실행을 하고 nodemon 은 hmr 을 위해서 설치한다.
+
+```ts
+// tsconfig.server.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "production-server/"
+  },
+  "include": ["./server/**/*.ts"]
+}
+
+// nodemon.json
+{
+  "watch": ["server/**/*.ts"],
+  "execMap": {
+    "ts": "ts-node --project tsconfig.server.json"
+  }
+}
+
+// server/index.ts
+import * as express from 'express'
+import * as next from 'next'
+import nextI18NextMiddleware from 'next-i18next/middleware'
+import nextI18next from '../i18n'
+
+const port = process.env.PORT || 3000
+const app = next({ dev: process.env.NODE_ENV !== 'production' })
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+  const server = express()
+
+  server.use(nextI18NextMiddleware(nextI18next))
+
+  server.get('*', (req, res) => handle(req, res))
+
+  server.listen(port, err => {
+    if (err) throw err
+
+    console.log(`> Ready on http://localhost:${port}`)
+  })
+})
+```
+
+
+### 컴포넌트에 적용
+
+```tsx
+// _app.tsx
+...
+export default withRedux(initStore)(appWithTranslation(_App))
+
+// index.tsx
+...
+<h1>{this.props.t('title')}</h1>
+<button onClick={() => i18n.changeLanguage('en')}>🇺🇸</button>
+<button onClick={() => i18n.changeLanguage('ko')}>🇰🇷</button>🇺
+...
+export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces('common')(IndexPage))
+```
 
 ---
 
@@ -413,3 +520,4 @@ export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
 2. [NextJS + Typescript + Redux](https://medium.com/@raphat/next-js-typescript-redux-3fbc990cb901)
 3. [Build a todo pwa with nextjs redux typescript docket and now cloud](https://medium.com/@johhansantana/build-a-todo-pwa-with-nextjs-redux-typescript-docker-and-now-cloud-v2-serverless-docker-9f61bb22f88c)
 4. [next-redux-wrapper github](https://github.com/kirill-konshin/next-redux-wrapper)
+5. [saas app](https://github.com/async-labs/saas/tree/master/app)

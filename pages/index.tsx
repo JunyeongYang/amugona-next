@@ -2,13 +2,14 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { updateMessage } from '../src/redux/showcase/actions'
+import { i18n, withNamespaces } from '../i18n'
 
 import "./index.scss"
 
 interface IndexProps {
-  title: string
   message: string
   updateMessage: any
+  t: Function
 }
 
 interface IndexState {
@@ -16,19 +17,21 @@ interface IndexState {
 }
 
 class IndexPage extends React.Component<IndexProps, IndexState> {
-  static async getInitialProps({store, isServer, pathname, query}) {
+  static async getInitialProps() {
     return {
-      title: 'NextJS + Typescript + Sass + Redux + I18N + MaterialUI'
+      namespacesRequired: ['common']
     }
   }
 
   render(): JSX.Element {
-    const { title, message, updateMessage } = this.props
+    const { t, message, updateMessage } = this.props
     return (
       <div className="root">
-        <h1>{title}</h1>
+        <h1>{t('title')}</h1>
         <p>Message : <span>{message}</span></p>
         <button onClick={() => updateMessage('update message')}>click</button>
+        <button onClick={() => i18n.changeLanguage('en')}>🇺🇸</button>
+        <button onClick={() => i18n.changeLanguage('ko')}>🇰🇷</button>🇺
       </div>
     )
   }
@@ -42,4 +45,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateMessage: bindActionCreators(updateMessage, dispatch)
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage)
+export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces('common')(IndexPage))

@@ -18,6 +18,7 @@
     "noImplicitAny": false,
   },
   "exclude": [
+    ".next",
     "node_modules",
   ]
 }
