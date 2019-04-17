@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="40px" viewBox="0 0 70 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>logo / egaming/color@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="logo-/-egaming/color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M17,2.73441865 C17,2.27698501 17.1113082,1.82686304 17.3237287,1.42528407 C18.0248841,0.0997564476 19.6353472,-0.388676483 20.9207987,0.334338582 L51.6178081,17.6001785 C52.0647191,17.8515481 52.4320002,18.2302797 52.6757698,18.691124 C53.3769252,20.0166516 52.9032596,21.6773236 51.6178081,22.4003386 L20.9207987,39.6661785 C20.5313611,39.8852216 20.0948481,40 19.6512446,40 C18.1870026,40 17,38.7759906 17,37.2660984 L17,2.73441865 Z" id="Path-2" fill="#00B865" fill-rule="nonzero"></path>
+        <g id="Group" transform="translate(20.000000, 10.000000)">
+            <path d="M15,2 C11.8534483,2 11.3103448,0 7,0 C2.68965517,0 0,7.43478261 0,13 C0,18.5652174 1.20689655,20 2.93103448,20 C4.31034483,20 6.45689655,18.5 7.5,17 C8.54310345,15.5 9.31034483,14 11.0344828,14 L18.9655172,14 C20.6896552,14 21.2931034,15.5217391 22.5,17 C23.7068966,18.4782609 25.6896552,20 27.0689655,20 C28.7931034,20 30,18.5652174 30,13 C30,7.43478261 27.3103448,0 23,0 C18.6896552,0 18.1465517,2 15,2 Z" id="Fill-1" fill="#1E2231"></path>
+            <circle id="Oval" stroke="#FFFFFF" stroke-width="1.5" fill-rule="nonzero" cx="8" cy="8" r="2"></circle>
+            <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="21" y="5" width="2" height="6"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" fill-rule="nonzero" x="19" y="7" width="6" height="2"></rect>
+        </g>
+    </g>
+</svg>

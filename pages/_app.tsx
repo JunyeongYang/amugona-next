@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import { initStore } from '../src/redux/store'
 import { appWithTranslation } from '../i18n'
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 type AppProps = {
   store: any
@@ -22,6 +23,7 @@ class _App extends App<AppProps> {
 
     return (
       <Container>
+        <CssBaseline />
         <Provider store={store}>
           <Component {...pageProps} />
         </Provider>

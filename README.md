@@ -512,6 +512,14 @@ export default withRedux(initStore)(appWithTranslation(_App))
 export default connect(mapStateToProps, mapDispatchToProps)(withNamespaces('common')(IndexPage))
 ```
 
+## Material-UI 설치 및 적용
+
+```sh
+yarn add @material-ui/core @material-ui/icons
+```
+
+
+
 ---
 
 # 참고

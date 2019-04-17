@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70px" height="40px" viewBox="0 0 70 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>logo / brexit/color@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="35" cy="20" r="18"></circle>
+        <path d="M25,18 L50,18 L50,36 L25,18 Z M25,18 L25,36 L0,36 L25,18 Z M25,18 L0,18 L0,0 L25,18 Z M25,18 L25,0 L50,0 L25,18 Z" id="path-3"></path>
+    </defs>
+    <g id="logo-/-brexit/color" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Oval" fill-rule="nonzero"></g>
+        <g id="Flag_of_the_United_Kingdom" mask="url(#mask-2)">
+            <g transform="translate(10.000000, 2.000000)">
+                <polygon id="Path" stroke="none" fill="#00247D" fill-rule="evenodd" points="0 0 0 36 50 36 50 0"></polygon>
+                <path d="M0,0 L50,36 M50,0 L0,36" id="Shape" stroke="#FFFFFF" stroke-width="7.2" fill="#000000" fill-rule="nonzero"></path>
+                <g id="Clipped" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <g id="Shape"></g>
+                    <path d="M0,0 L50,36 M50,0 L0,36" id="Shape" stroke="#CF142B" stroke-width="4" fill="#000000" fill-rule="nonzero" mask="url(#mask-4)"></path>
+                </g>
+                <path d="M25,0 L25,36 M0,18 L50,18" id="Shape" stroke="#FFFFFF" stroke-width="12" fill="#000000" fill-rule="nonzero"></path>
+                <path d="M25,0 L25,36 M0,18 L50,18" id="Shape" stroke="#CF142B" stroke-width="8" fill="#000000" fill-rule="nonzero"></path>
+            </g>
+        </g>
+        <g id="eu" mask="url(#mask-2)">
+            <g transform="translate(8.000000, 2.000000)">
+                <polygon id="Rectangle" fill="#003399" points="0 0 33.015 0 24 17.5 32 15 23 36 0 36"></polygon>
+                <path d="M20.2734575,28.6283728 L19.097887,27.7742709 L20.550972,27.7742709 L21,26.3923048 L21.449028,27.7742709 L22.902113,27.7742709 L21.7265425,28.6283728 L22.1755705,30.0103388 L21,29.1562369 L19.8244295,30.0103388 L20.2734575,28.6283728 Z M15.8811526,24.236068 L14.7055821,23.381966 L16.1586672,23.381966 L16.6076952,22 L17.0567231,23.381966 L18.5098082,23.381966 L17.3342377,24.236068 L17.7832657,25.618034 L16.6076952,24.763932 L15.4321247,25.618034 L15.8811526,24.236068 Z M16.1586672,11.381966 L16.6076952,10 L17.0567231,11.381966 L18.5098082,11.381966 L17.3342377,12.236068 L17.7832657,13.618034 L16.6076952,12.763932 L15.4321247,13.618034 L15.8811526,12.236068 L14.7055821,11.381966 L16.1586672,11.381966 Z M21.449028,6.98966117 L22.902113,6.98966117 L21.7265425,7.84376313 L22.1755705,9.22572914 L21,8.37162718 L19.8244295,9.22572914 L20.2734575,7.84376313 L19.097887,6.98966117 L20.550972,6.98966117 L21,5.60769515 L21.449028,6.98966117 Z M15,18.763932 L13.8244295,19.618034 L14.2734575,18.236068 L13.097887,17.381966 L14.550972,17.381966 L15,16 L15.449028,17.381966 L16.902113,17.381966 L15.7265425,18.236068 L16.1755705,19.618034 L15,18.763932 Z M27,6.76393202 L25.8244295,7.61803399 L26.2734575,6.23606798 L25.097887,5.38196601 L26.550972,5.38196601 L27,4 L27.449028,5.38196601 L28.902113,5.38196601 L27.7265425,6.23606798 L28.1755705,7.61803399 L27,6.76393202 Z" id="Combined-Shape" fill="#FFCC00"></path>
+            </g>
+        </g>
+        <polygon id="Path-100" fill="#2F8BE7" fill-rule="nonzero" mask="url(#mask-2)" points="39.5 1.5 30 21 38 19 31 38 42 15 34 18 42.5 2.5"></polygon>
+    </g>
+</svg>
